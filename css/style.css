@@ -1,0 +1,386 @@
+/* =======================================================
+   style.css - UNIFICADO Y CORREGIDO
+   - Centrado consistente para index
+   - Videos grandes (mensaje y memorias) con borde rosa
+   - Footer pegado abajo sin romper el layout
+   ======================================================= */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Georgia", serif;
+}
+
+/* Colores principales */
+:root {
+  --rosa: #ffb6c1; /* rosa Hello Kitty */
+  --rosamas: #ff94b0;
+  --blanco: #fff8f9;
+  --texto: #4a2c2a;
+}
+
+/* Body / layout */
+html, body {
+  height: 100%;
+}
+body {
+  background-color: var(--blanco);
+  color: var(--texto);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* hace que footer pueda quedarse abajo */
+}
+
+/* Contenedor principal */
+main {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--rosa);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.25s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--rosamas);
+}
+
+/* Botón hamburguesa */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* ======================================================
+   HERO / INDEX - centrado garantizado
+   ====================================================== */
+.hero {
+  margin: 3rem auto;
+  text-align: center;
+  padding: 1rem;
+  max-width: 1100px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--rosa);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  max-width: 900px;
+  margin: 0.5rem auto;
+}
+
+.hero-img {
+  display: block;
+  margin: 1rem auto;
+  max-width: 450px;
+  width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Sections */
+section {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Titulos comunes */
+.welcome h2,
+.cards h2,
+.special-message h2,
+.hero h1 {
+  color: var(--rosa);
+}
+
+/* Texto centrado */
+.welcome p,
+.special-message p {
+  max-width: 700px;
+  margin: 0.5rem auto;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+/* ======================================================
+   CARDS (index) - grid centrado
+   ====================================================== */
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.card {
+  width: 280px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card img,
+.card video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ======================================================
+   VIDEO - NORMALIZADO (iframe y <video>)
+   ====================================================== */
+.video-container,
+.mensaje-video-container,
+.memorias-video-container {
+  position: relative;
+  width: min(900px, 95%);
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+  background: black;
+}
+
+/* Proporción 16:9 */
+.video-container::before,
+.mensaje-video-container::before,
+.memorias-video-container::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 */
+}
+
+/* iframe o video dentro */
+.video-container iframe,
+.mensaje-video-container iframe,
+.memorias-video-container iframe,
+.video-container video,
+.mensaje-video-container video,
+.memorias-video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+}
+
+
+/* Título "Dale Play" */
+.dale-play {
+  font-size: 3rem;
+  color: var(--rosa);
+  font-family: 'Great Vibes', cursive;
+  text-align: center;
+  margin: 1.5rem 0 1rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+
+/* ======================================================
+   CARTA (mensaje)
+   ====================================================== */
+.mensaje-content {
+  padding: 2.5rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.carta {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 740px;
+  text-align: center;
+  line-height: 1.8;
+  color: var(--texto);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  border: 3px solid rgba(255,182,193,0.45);
+}
+
+.carta h2 {
+  font-size: 1.9rem;
+  color: var(--rosamas);
+  margin-bottom: 1rem;
+  font-family: 'Great Vibes', cursive;
+}
+
+.carta p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.carta .firma {
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-top: 1.4rem;
+  color: var(--rosamas);
+}
+
+/* ======================================================
+   Footer
+   ====================================================== */
+footer {
+  margin-top: auto;
+  padding: 1rem;
+  background-color: var(--rosa);
+  color: white;
+  text-align: center;
+}
+
+/* ======================================================
+   Responsive
+   ====================================================== */
+@media (max-width: 992px) {
+  .hero h1 { font-size: 2.2rem; }
+  .dale-play { font-size: 2.6rem; }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--rosa);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+  }
+  .nav-links.show { display: flex; }
+  .hamburger { display: block; }
+
+  .hero { margin: 2rem auto; padding: 0.8rem; }
+  .hero-img { max-width: 95%; }
+  .card-container { grid-template-columns: 1fr; }
+  .video-container, .video-wrapper { width: 95%; }
+  .video-container.square { aspect-ratio: 1 / 1; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.6rem; }
+  .dale-play { font-size: 2.2rem; }
+  .carta { padding: 1.2rem; font-size: 0.98rem; }
+  .card img, .card video { height: 180px; }
+}
+
+
+.mensaje-video-container {
+  width: 90vw;           /* ocupa el 90% del ancho de la pantalla */
+  max-width: 900px;      /* límite máximo */
+  margin: 0 auto 2rem;   /* centrado */
+  aspect-ratio: 1 / 1;   /* cuadrado perfecto */
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+  background: black;
+}
+
+.mensaje-video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.memorias-video-container {
+  width: 90vw;           /* más ancho que el de mensaje */
+  max-width: 900px;      /* límite máximo más grande */
+  margin: 0 auto 2rem;   /* centrado */
+  aspect-ratio: 16 / 9;  /* rectangular estilo cine */
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+  background: black;
+}
+
+.memorias-video-container video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* ======================================================
+   NO TE RINDAS (Noterindas.html)
+   ====================================================== */
+.noterindas-hero {
+  text-align: center;
+  margin: 2.5rem auto;
+  max-width: 900px;
+  padding: 0 1rem;
+}
+
+.playlist-container {
+  width: 90vw;
+  max-width: 840px;
+  margin: 1rem auto 2rem;
+  aspect-ratio: 16/9;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+  background: #000;
+}
+
+.playlist-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 480px) {
+  .playlist-container { aspect-ratio: 4/3; }
+}
+
